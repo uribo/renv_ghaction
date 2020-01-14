@@ -1,0 +1,67 @@
+name: renv_cache
+
+on:
+  push:
+    branches: master
+
+jobs:
+  renv_cache:
+    runs-on: ${{ matrix.config.os }}
+
+    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+        - { os: windows-latest, r: '3.6',   args: "--no-manual"}
+        - { os: macOS-latest,   r: '3.6',   args: "--no-manual"}
+        - { os: ubuntu-latest,  r: '3.6',   args: "--no-manual", cran: "https://demo.rstudiopm.com/all/__linux__/xenial/latest" }
+        
+    env:
+      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+      CRAN: ${{ matrix.config.cran }}
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v1
+    - uses: r-lib/actions/setup-r@master
+      with:
+        r-version: ${{ matrix.config.r }}
+    - name: Install system dependencies
+      if: startsWith(runner.os, 'Linux')
+      run: |-
+        sudo apt-get update && \
+        sudo apt-get install -y --no-install-recommends \
+        libcurl4-openssl-dev \
+        libssl-dev \
+        zlib1g-dev && \
+        sudo apt-get clean && \
+        sudo rm -rf /var/lib/apt/lists/*
+    - uses: actions/cache@v1
+      if: startsWith(runner.os, 'Linux')
+      with:
+        path: ~/.local/share/renv
+        key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-renv-
+    - uses: actions/cache@v1
+      if: startsWith(runner.os, 'macOS')
+      with:
+        path: ~/Library/Application Support/renv
+        key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-renv-
+    - uses: actions/cache@v1
+      if: startsWith(runner.os, 'Windows')
+      with:
+        path: ~\AppData\Local\renv
+        key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-renv-
+    - name: Install Package Dependencies
+      run: |-
+        Rscript -e "install.packages('renv'); renv::restore(confirm = FALSE)"
+    - name: Run rscript
+      run: |
+        Rscript -e "source('02-workflow.R')"

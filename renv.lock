@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "3.6.1",
+    "Version": "3.6.2",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -28,10 +28,6 @@
       "Version": "1.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemoteRef": "askpass",
-      "RemoteRepos": "https://cran.rstudio.com",
-      "RemoteSha": "1.1",
       "Hash": "e8a22846fff485f0be3770c2da758713"
     },
     "assertthat": {
@@ -67,10 +63,6 @@
       "Version": "0.7.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemoteRef": "clipr",
-      "RemoteRepos": "https://cran.rstudio.com",
-      "RemoteSha": "0.7.0",
       "Hash": "08cf4045c149a0f0eaf405324c7495bd"
     },
     "clisymbols": {
@@ -78,10 +70,6 @@
       "Version": "1.2.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemoteRef": "clisymbols",
-      "RemoteRepos": "https://cran.rstudio.com",
-      "RemoteSha": "1.2.0",
       "Hash": "96c01552bfd5661b9bbdefbc762f4bcd"
     },
     "crayon": {
@@ -110,10 +98,6 @@
       "Version": "1.2.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemoteRef": "desc",
-      "RemoteRepos": "https://cran.rstudio.com",
-      "RemoteSha": "1.2.0",
       "Hash": "6c8fe8fa26a23b79949375d372c7b395"
     },
     "digest": {
@@ -149,16 +133,12 @@
       "Version": "1.3.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemoteRef": "fs",
-      "RemoteRepos": "https://cran.rstudio.com",
-      "RemoteSha": "1.3.1",
       "Hash": "0e26be4558dbbc713d7cfe4a4c361f38"
     },
     "gh": {
       "Package": "gh",
       "Version": "1.0.1",
-      "Source": "Repository",
+      "Source": "CRAN",
       "Repository": "CRAN",
       "RemoteType": "standard",
       "RemoteRef": "gh",
@@ -171,10 +151,6 @@
       "Version": "0.26.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemoteRef": "git2r",
-      "RemoteRepos": "https://cran.rstudio.com",
-      "RemoteSha": "0.26.1",
       "Hash": "135db4dbc94ed18f629ff8843a8064b7"
     },
     "glue": {
@@ -182,10 +158,6 @@
       "Version": "1.3.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemoteRef": "glue",
-      "RemoteRepos": "https://cran.rstudio.com",
-      "RemoteSha": "1.3.1",
       "Hash": "d4e25697c450c01b202c79ef35694a83"
     },
     "httr": {
@@ -200,10 +172,6 @@
       "Version": "0.3.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemoteRef": "ini",
-      "RemoteRepos": "https://cran.rstudio.com",
-      "RemoteSha": "0.3.1",
       "Hash": "6154ec2223172bce8162d4153cda21f7"
     },
     "jsonlite": {
@@ -232,10 +200,6 @@
       "Version": "1.4.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemoteRef": "openssl",
-      "RemoteRepos": "https://cran.rstudio.com",
-      "RemoteSha": "1.4.1",
       "Hash": "49f7258fd86ebeaea1df24d9ded00478"
     },
     "pkgbuild": {
@@ -291,7 +255,8 @@
       "Package": "renv",
       "Version": "0.9.3",
       "Source": "Repository",
-      "Repository": "CRAN"
+      "Repository": "CRAN",
+      "Hash": "c1a367437d8a8a44bec4b9d4974cb20c"
     },
     "rlang": {
       "Package": "rlang",
@@ -305,16 +270,12 @@
       "Version": "1.3-2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemoteRef": "rprojroot",
-      "RemoteRepos": "https://cran.rstudio.com",
-      "RemoteSha": "1.3-2",
       "Hash": "f6a407ae5dd21f6f80a6708bbb6eb3ae"
     },
     "rstudioapi": {
       "Package": "rstudioapi",
       "Version": "0.10",
-      "Source": "Repository",
+      "Source": "CRAN",
       "Repository": "CRAN",
       "RemoteType": "standard",
       "RemoteRef": "rstudioapi",
@@ -341,10 +302,6 @@
       "Version": "1.5.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemoteRef": "usethis",
-      "RemoteRepos": "https://cran.rstudio.com",
-      "RemoteSha": "1.5.1",
       "Hash": "30ee6fa315a020d5db6f28adbb7fea83"
     },
     "whisker": {
@@ -352,10 +309,6 @@
       "Version": "0.4",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemoteRef": "whisker",
-      "RemoteRepos": "https://cran.rstudio.com",
-      "RemoteSha": "0.4",
       "Hash": "ca970b96d894e90397ed20637a0c1bbe"
     },
     "withr": {

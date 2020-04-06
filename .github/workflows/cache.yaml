@@ -1,8 +1,8 @@
 name: renv_cache
 
 on:
-  push:
-    branches: master
+  schedule:
+    - cron:  '35 * * * *'
 
 jobs:
   renv_cache:
@@ -64,4 +64,4 @@ jobs:
         Rscript -e "install.packages('renv'); renv::restore(confirm = FALSE)"
     - name: Run rscript
       run: |
-        Rscript -e "source('02-workflow.R')"
+        Rscript -e "source('03-schedule_jobs.R')"

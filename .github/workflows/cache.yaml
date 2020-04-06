@@ -67,5 +67,6 @@ jobs:
         Rscript -e "source('03-schedule_jobs.R')"
     - name: Commit results
       run: |
+        git add plot_out.png plot_data.csv
         git commit -m 'Update data and image' plot_out.png plot_data.csv || echo "No changes to commit"
         git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{ github.ref }} || echo "No changes to commit"

@@ -2,7 +2,7 @@ name: renv_cache
 
 on:
   schedule:
-    - cron:  '35 * * * *'
+    - cron:  '40 * * * *'
 
 jobs:
   renv_cache:
@@ -66,6 +66,6 @@ jobs:
       run: |
         Rscript -e "source('03-schedule_jobs.R')"
     - name: Commit results
-        run: |
-          git commit -m 'Update data and image' plot_out.png plot_data.csv || echo "No changes to commit"
-          git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{ github.ref }} || echo "No changes to commit"
+      run: |
+        git commit -m 'Update data and image' plot_out.png plot_data.csv || echo "No changes to commit"
+        git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{ github.ref }} || echo "No changes to commit"

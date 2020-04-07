@@ -1,7 +1,9 @@
 library(ggplot2)
 
 p <- 
-  ggplot(iris, aes(Sepal.Length, Petal.Width)) +
+  iris %>% 
+  ggplot() +
+  aes(Sepal.Length, Petal.Width) +
   geom_point()
 ggsave(filename = "ggplot_out.png",
        p)

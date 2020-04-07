@@ -1,0 +1,34 @@
+on:
+  push:
+    paths:
+      - 04-ggplot2_in_japanese.R
+
+name: Figures Update
+
+jobs:
+  render:
+    name: Figures Update
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@v1
+      - uses: r-lib/actions/setup-pandoc@v1
+
+      - uses: actions/cache@v1
+        if: startsWith(runner.os, 'macOS')
+        with:
+          path: ~/Library/Application Support/renv
+          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-renv-
+      - name: Install Package Dependencies
+        run: |-
+          Rscript -e "install.packages('renv'); renv::restore(confirm = FALSE)"
+      - name: 
+        run: |
+          Rscript -e 'source("mapping.R")'
+      - name: Commit results
+        run: |
+          git add ggplot_out.png ggplot_out_jp.png
+          git commit ggplot_out.png ggplot_out_jp.png -m 'Update' || echo "No changes to commit"
+          git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{ github.ref }} || echo "No changes to commit"

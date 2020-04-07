@@ -1,4 +1,5 @@
 library(ggplot2)
+library(magrittr)
 
 p <- 
   iris %>% 

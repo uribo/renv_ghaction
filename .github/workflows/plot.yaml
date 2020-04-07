@@ -24,6 +24,9 @@ jobs:
       - name: Install Package Dependencies
         run: |-
           Rscript -e "install.packages('renv'); renv::restore(confirm = FALSE)"
+      - name:
+        run: |
+          Rscript -e 'extrafont::font_import()'
       - name: 
         run: |
           Rscript -e 'source("04-ggplot2_in_japanese.R")'

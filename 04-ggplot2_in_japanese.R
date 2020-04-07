@@ -1,4 +1,5 @@
 library(ggplot2)
+extrafont::loadfonts()
 
 p <- 
   ggplot(iris) +

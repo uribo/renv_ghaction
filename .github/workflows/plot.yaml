@@ -26,7 +26,7 @@ jobs:
           Rscript -e "install.packages('renv'); renv::restore(confirm = FALSE)"
       - name: 
         run: |
-          Rscript -e 'source("mapping.R")'
+          Rscript -e 'source("04-ggplot2_in_japanese.R")'
       - name: Commit results
         run: |
           git add ggplot_out.png ggplot_out_jp.png

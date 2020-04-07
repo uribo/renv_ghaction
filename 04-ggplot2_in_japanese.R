@@ -12,6 +12,9 @@ p_jp <-
   xlab("萼片長") +
   ylab("花弁幅") +
   theme_gray(base_family = "Osaka")
-png("ggplot_out_jp.png", width = 2100, height = 2100, units = "px", res = 300)
-p_jp
-dev.off()
+warnings()
+# png("ggplot_out_jp.png", width = 2100, height = 2100, units = "px", res = 300)
+# p_jp
+# dev.off()
+ggsave(filename = "ggplot_out_jp.png",
+       p_jp)

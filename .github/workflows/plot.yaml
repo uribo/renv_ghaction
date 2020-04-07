@@ -29,6 +29,6 @@ jobs:
           Rscript -e 'source("04-ggplot2_in_japanese.R")'
       - name: Commit results
         run: |
-          git add ggplot_out.png ggplot_out_jp.png
-          git commit ggplot_out.png ggplot_out_jp.png -m 'Update' || echo "No changes to commit"
+          git add ggplot_out.png
+          git commit ggplot_out.png -m 'Update' || echo "No changes to commit"
           git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{ github.ref }} || echo "No changes to commit"

@@ -2,7 +2,7 @@ name: renv_schedule_update
 
 on:
   schedule:
-    - cron:  '13 5 * * *'
+    - cron:  '26 * * * *'
 
 jobs:
   renv_schedule_update:

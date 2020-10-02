@@ -38,21 +38,21 @@ jobs:
         zlib1g-dev && \
         sudo apt-get clean && \
         sudo rm -rf /var/lib/apt/lists/*
-    - uses: actions/cache@v1
+    - uses: actions/cache@v2
       if: startsWith(runner.os, 'Linux')
       with:
         path: ~/.local/share/renv
         key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
         restore-keys: |
           ${{ runner.os }}-renv-
-    - uses: actions/cache@v1
+    - uses: actions/cache@v2
       if: startsWith(runner.os, 'macOS')
       with:
         path: ~/Library/Application Support/renv
         key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
         restore-keys: |
           ${{ runner.os }}-renv-
-    - uses: actions/cache@v1
+    - uses: actions/cache@v2
       if: startsWith(runner.os, 'Windows')
       with:
         path: ~\AppData\Local\renv

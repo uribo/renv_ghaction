@@ -14,7 +14,7 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
       - uses: r-lib/actions/setup-pandoc@v1
 
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         if: startsWith(runner.os, 'macOS')
         with:
           path: ~/Library/Application Support/renv
